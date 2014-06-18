@@ -12,12 +12,12 @@
     <display-name>ITC357-Ass1</display-name>
 
     <servlet>
-      <servlet-name>Hello</servlet-name>
-      <jsp-file>hello.jsp</jsp-file>
+      <servlet-name>Hotel</servlet-name>
+      <jsp-file>hotel.jsp</jsp-file>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>Hello</servlet-name>
-        <url-pattern>/hello</url-pattern>
+        <servlet-name>Hotel</servlet-name>
+        <url-pattern>/hotel</url-pattern>
     </servlet-mapping>
 </web-app>
