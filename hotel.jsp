@@ -2,11 +2,13 @@
   <head>
     <meta charset="utf-8">
     <title>Fawlty Towers Guest Registration</title>
-     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-     <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="style/smoothness/jquery-ui.css">
+     <script src="js/jquery-1.11.1.min.js"></script>
+     <script src="js/jquery-ui.min.js"></script>
+     <script src="js/jquery.ui.datepicker-en-AU.js"></script>
      <script>
        $(function() {
-       $( ".datepicker" ).datepicker();
+         $(".datepicker").datepicker();
        });
      </script>
   </head>
