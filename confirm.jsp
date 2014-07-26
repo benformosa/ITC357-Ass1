@@ -32,18 +32,6 @@
         <td><%= request.getParameter("address") %></td>
       </tr>
       <tr>
-        <td>Suburb or Town</td>
-        <td><%= request.getParameter("suburb") %></td>
-      </tr>
-      <tr>
-        <td>State</td>
-        <td><%= request.getParameter("state").toUpperCase() %></td>
-      </tr>
-      <tr>
-        <td>Postcode</td>
-        <td><%= request.getParameter("postcode") %></td>
-      </tr>
-      <tr>
         <td>Telephone</td>
         <td><%= request.getParameter("tel") %></td>
       </tr>

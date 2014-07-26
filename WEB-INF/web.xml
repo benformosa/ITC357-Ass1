@@ -13,7 +13,7 @@
 
     <servlet>
       <servlet-name>Hotel</servlet-name>
-      <jsp-file>hotel.jsp</jsp-file>
+      <jsp-file>/hotel.jsp</jsp-file>
     </servlet>
 
     <servlet-mapping>
