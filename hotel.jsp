@@ -18,7 +18,7 @@
     <h1>Fawlty Towers Guest Registration</h1>
     Welcome, please complete the form below to request a reservation.<br><br>
 
-    <form id=reservation action="confirm.jsp" method="POST">
+    <form id=reservation action="reservation" method="POST">
 
       <label for=givenname>Given Name:</label><br>
       <input type="text" id=givenname name=givenname><br>
