@@ -11,24 +11,6 @@ public class ReservationServlet extends HttpServlet {
   private static final int MAX_CHILDREN = 4;
   private static final String DATE_FORMAT = "dd/MM/yyyy";
 
-  protected void doGet(
-      HttpServletRequest request,
-      HttpServletResponse response) throws ServletException, IOException {
-
-    response.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = response.getWriter();
-    out.println(
-        "<!DOCTYPE html>\n"
-        + "<html>\n"
-        + "<head>\n"
-        + "</head>\n"
-        + "<body>\n"
-        + "<h1>NOOOOPE</h1>\n"
-        + "</body>\n"
-        + "</html>"
-        );
-    out.close();
-      }
   /*
    * If the input from hotel.jsp is valid, display a confirmation.
    * If it is invalid, forward the response from validate(HttpServlet request) to hotel.jsp.
