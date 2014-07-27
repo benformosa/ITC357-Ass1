@@ -23,10 +23,7 @@ public class ReservationServlet extends HttpServlet {
     HttpServletRequest invalid = validate(request);
 
     if(invalid == null) {
-      response.setContentType("text/html;charset=UTF-8");
-      PrintWriter out = response.getWriter();
-      out.println(confirm(request));
-      out.close();
+      getServletContext().getRequestDispatcher("/confirm").forward(request, response);
     } else {
       getServletContext().getRequestDispatcher("/").forward(invalid, response);
     }
@@ -140,73 +137,5 @@ public class ReservationServlet extends HttpServlet {
 
   public static boolean isNotEmpty(String s) {
     return(s != null && !s.isEmpty());
-  }
-
-  public String confirm(HttpServletRequest request) {
-    return "<!DOCTYPE html>"
-      + "<html>\n"
-      + "  <head>\n"
-      + "    <meta charset=\"utf-8\">\n"
-      + "    <title>Fawlty Towers Guest Registration</title>\n"
-      + "    <link rel=\"stylesheet\" type=\"text/css\" href=\"style/hotel.css\">\n"
-      + "  </head>\n"
-      + "  <body>\n"
-      + "    <h1>Fawlty Towers Guest Registration</h1>\n"
-      + "    Thank you for making a reservation, "
-      + request.getParameter("givenname")
-      + "<br><br>\n"
-      + "\n"
-      + "\n"
-      + "    <table>\n"
-      + "      <tr>\n"
-      + "        <th colspan=2>Your details:</th>\n"
-      + "      </tr>\n"
-      + "      <tr>\n"
-      + "        <td>Name</td>\n"
-      + "        <td>"
-      + request.getParameter("givenname") 
-      + " "
-      + request.getParameter("sn")
-      + "</td>\n"
-      + "      </tr>\n"
-      + "      <tr>\n"
-      + "        <td>Adults</td>\n"
-      + "        <td>"
-      + request.getParameter("adults")
-      + "</td>\n"
-      + "      </tr>\n"
-      + "      <tr>\n"
-      + "        <td>Children</td>\n"
-      + "        <td>"
-      + request.getParameter("children")
-      + "</td>\n"
-      + "      </tr>\n"
-      + "      <tr>\n"
-      + "        <td>Address</td>\n"
-      + "        <td>"
-      + request.getParameter("address").replace("\n", "<br>")
-      + "</td>\n"
-      + "      </tr>\n"
-      + "      <tr>\n"
-      + "        <td>Telephone</td>\n"
-      + "        <td>"
-      + request.getParameter("tel")
-      + "</td>\n"
-      + "      </tr>\n"
-      + "      <tr>\n"
-      + "        <td>Arrive</td>\n"
-      + "        <td>"
-      + request.getParameter("arrive")
-      + "</td>\n"
-      + "      </tr>\n"
-      + "      <tr>\n"
-      + "        <td>Depart</td>\n"
-      + "        <td>"
-      + request.getParameter("depart")
-      + "</td>\n"
-      + "      </tr>\n"
-      + "    </table>\n"
-      + "  </body>\n"
-      + "</html>\n";
   }
 }

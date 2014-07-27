@@ -29,6 +29,15 @@
   </servlet-mapping>
 
   <servlet>
+    <servlet-name>Confirm</servlet-name>
+    <jsp-file>/confirm.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Confirm</servlet-name>
+    <url-pattern>/confirm</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
     <servlet-name>Reservation</servlet-name>
     <servlet-class>hotel.ReservationServlet</servlet-class>
   </servlet>
