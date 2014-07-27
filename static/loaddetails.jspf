@@ -1,0 +1,10 @@
+  <%
+  String givenName = request.getParameter("givenname");
+  String SN =  request.getParameter("sn"); 
+  String adults = request.getParameter("adults");
+  String children = request.getParameter("children");
+  String address = request.getParameter("address");
+  String tel = request.getParameter("tel");
+  String arrive = request.getParameter("arrive");
+  String depart = request.getParameter("depart");
+  %>

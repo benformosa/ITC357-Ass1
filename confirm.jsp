@@ -1,48 +1,29 @@
-<%@ page import="java.io.*,java.util.*" %>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <title>Fawlty Towers Guest Registration</title>
-    <link rel="stylesheet" type="text/css" href="css/hotel.css">
+    <link rel="stylesheet" type="text/css" href="static/css/hotel.css">
   </head>
+  <%@include file="static/loaddetails.jspf" %>
   <body>
     <h1>Fawlty Towers Guest Registration</h1>
-    Thank you for making a reservation, <%= request.getParameter("givenname") %><br><br>
+    Thanks <%= givenName %>, please check your details below and click Edit or Confirm.<br><br>
 
+    <%@include file="static/detailstable.jspf"%><br>
 
-    <table>
-      <tr>
-        <th colspan=2>Your details:</th>
-      </tr>
-      <tr>
-        <td>Name</td>
-        <td><%= request.getParameter("givenname") %> <%= request.getParameter("sn") %></td>
-      </tr>
-      <tr>
-        <td>Adults</td>
-        <td><%= request.getParameter("adults") %></td>
-      </tr>
-      <tr>
-        <td>Children</td>
-        <td><%= request.getParameter("children") %></td>
-      </tr>
-      <tr>
-        <td>Address</td>
-        <td><%= request.getParameter("address").replace("\n", "<br>") %></td>
-      </tr>
-      <tr>
-        <td>Telephone</td>
-        <td><%= request.getParameter("tel") %></td>
-      </tr>
-      <tr>
-        <td>Arrive</td>
-        <td><%= request.getParameter("arrive") %></td>
-      </tr>
-      <tr>
-        <td>Depart</td>
-        <td><%= request.getParameter("depart") %></td>
-      </tr>
-    </table>
+    <form id=editreservation action="hotel" method="POST" accept-charset="UTF-8">
+      <%@include file="static/hiddenform.jspf" %>
+      <input type="submit" value="Edit">
+    </form><br>
+
+    <form id=confirmreservation action="final" method="POST" accept-charset="UTF-8">
+      <%@include file="static/hiddenform.jspf" %>
+      <input type="submit" value="Confirm">
+    </form><br>
+
+    <form action="hotel">
+      <input type="submit" value="Cancel">
+    </form>
   </body>
 </html>

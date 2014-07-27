@@ -15,8 +15,7 @@
 
   <servlet-mapping>
     <servlet-name>default</servlet-name>
-    <url-pattern>/js/*</url-pattern>
-    <url-pattern>/css/*</url-pattern>
+    <url-pattern>/static/*</url-pattern>
   </servlet-mapping>
 
   <servlet>
@@ -35,6 +34,15 @@
   <servlet-mapping>
     <servlet-name>Confirm</servlet-name>
     <url-pattern>/confirm</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>Final</servlet-name>
+    <jsp-file>/final.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Final</servlet-name>
+    <url-pattern>/final</url-pattern>
   </servlet-mapping>
 
   <servlet>

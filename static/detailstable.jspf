@@ -1,0 +1,33 @@
+    <table>
+      <tr>
+        <th colspan=2>Your details:</th>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td><%= givenName %> <%= SN  %></td>
+      </tr>
+      <tr>
+        <td>Adults</td>
+        <td><%= adults  %></td>
+      </tr>
+      <tr>
+        <td>Children</td>
+        <td><%= children %></td>
+      </tr>
+      <tr>
+        <td>Address</td>
+        <td><%= address.replace("\n", "<br>") %></td>
+      </tr>
+      <tr>
+        <td>Telephone</td>
+        <td><%= tel %></td>
+      </tr>
+      <tr>
+        <td>Arrive</td>
+        <td><%= arrive %></td>
+      </tr>
+      <tr>
+        <td>Depart</td>
+        <td><%= depart %></td>
+      </tr>
+    </table>

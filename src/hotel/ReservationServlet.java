@@ -25,7 +25,7 @@ public class ReservationServlet extends HttpServlet {
     if(invalid == null) {
       getServletContext().getRequestDispatcher("/confirm").forward(request, response);
     } else {
-      getServletContext().getRequestDispatcher("/").forward(invalid, response);
+      getServletContext().getRequestDispatcher("/hotel").forward(invalid, response);
     }
       }
 
