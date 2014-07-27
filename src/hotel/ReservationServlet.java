@@ -3,6 +3,7 @@ package hotel;
 import java.io.*;
 import java.text.*;
 import java.util.Date;
+import java.util.Enumeration;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
@@ -27,7 +28,7 @@ public class ReservationServlet extends HttpServlet {
       out.println(confirm(request));
       out.close();
     } else {
-      getServletContext().getRequestDispatcher("hotel.jsp").forward(invalid, response);
+      getServletContext().getRequestDispatcher("/").forward(invalid, response);
     }
       }
 
@@ -37,7 +38,7 @@ public class ReservationServlet extends HttpServlet {
    * A valid request will return null.
    */
   public static HttpServletRequest validate(HttpServletRequest request) {
-    HttpServletRequest invalid = null;
+    HttpServletRequest invalid = request;
     boolean givenname, sn, address, tel, adults, children, date, notPast, departFollowsArrive;
 
     // simply test that these are not empty
@@ -91,10 +92,11 @@ public class ReservationServlet extends HttpServlet {
     Date arrive = null;
     Date depart = null;
     Date now = new Date();
-    date = false;
+    date = true;
     notPast = false;
     departFollowsArrive = false;
 
+    // check date format OK
     try {
       arrive = ft.parse(request.getParameter("arrive"));
     } catch(ParseException ex) {
@@ -102,6 +104,7 @@ public class ReservationServlet extends HttpServlet {
       invalid.setAttribute("arriveinvalid", "true"); 
     }
 
+    // check date format OK
     try {
       depart = ft.parse(request.getParameter("depart"));
     } catch(ParseException ex) {
@@ -109,20 +112,25 @@ public class ReservationServlet extends HttpServlet {
       invalid.setAttribute("departinvalid", "true"); 
     }
 
-    if(date) {
+    // if arrive format is OK, we can test if it is in the future
+    if(arrive != null) {
       // test that the arrival date is in the future
       notPast = arrive.after(now);
       if(!notPast) {
         invalid.setAttribute("arrivepast", "true"); 
       }
 
-      // test that the departure date is after the arrival date
-      departFollowsArrive = depart.after(arrive);
-      if(!departFollowsArrive) {
-        invalid.setAttribute("arriveafterdepart", "true"); 
+      // if both arrive and depart format OK, we can test if depart follows arrive
+      if(depart != null) {
+        // test that the departure date is after the arrival date
+        departFollowsArrive = depart.after(arrive);
+        if(!departFollowsArrive) {
+          invalid.setAttribute("arriveafterdepart", "true"); 
+        }
       }
     }
 
+    // if all the tests pass, return null. otherwise return the request with all the attibutes set
     if(givenname && sn && adults && children && address && tel && notPast && departFollowsArrive) {
       return null;
     } else {
@@ -157,6 +165,7 @@ public class ReservationServlet extends HttpServlet {
       + "        <td>Name</td>\n"
       + "        <td>"
       + request.getParameter("givenname") 
+      + " "
       + request.getParameter("sn")
       + "</td>\n"
       + "      </tr>\n"
@@ -175,7 +184,7 @@ public class ReservationServlet extends HttpServlet {
       + "      <tr>\n"
       + "        <td>Address</td>\n"
       + "        <td>"
-      + request.getParameter("address")
+      + request.getParameter("address").replace("\n", "<br>")
       + "</td>\n"
       + "      </tr>\n"
       + "      <tr>\n"

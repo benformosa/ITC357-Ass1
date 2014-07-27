@@ -14,20 +14,24 @@ label {
 }
 
 table, tr, th, td {
-    border: 1px solid darkgrey;
-    border-collapse: collapse; 
-    padding: 5px;
+  border: 1px solid darkgrey;
+  border-collapse: collapse; 
+  padding: 5px;
 }
 
 th {
-    background: grey;
-    text-align: left;
+  background: grey;
+  text-align: left;
 }
 
 tr:nth-child(even) td {
-    background: white;
+  background: white;
 }
 
 tr:nth-child(odd) td {
-    background: lightgrey;
+  background: lightgrey;
+}
+
+.error {
+  color: red;
 }
